@@ -3,7 +3,7 @@
 #   curl -fsSL https://raw.githubusercontent.com/YOUR_USER/YOUR_REPO/main/install.sh | bash
 set -euo pipefail
 
-REPO="${CIRA_REPO:-YOUR_USER/YOUR_REPO}"
+REPO="${CIRA_REPO:-TonyXdZ/can-i-ai}"
 URL="${CIRA_URL:-https://github.com/${REPO}/releases/latest/download/can-i-run-ai-linux}"
 BIN_DIR="${HOME}/.local/bin"
 APP_DIR="${HOME}/.local/share/applications"
