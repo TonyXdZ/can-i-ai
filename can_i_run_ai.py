@@ -235,7 +235,7 @@ def load_models():
 
 
 # Set this to the raw URL of models.json in YOUR GitHub repo, e.g.
-# "https://raw.githubusercontent.com/YOUR_USER/YOUR_REPO/main/models.json"
+# "https://raw.githubusercontent.com/TonyXdZ/can-i-ai/main/models.json"
 # Leave empty to disable online updates (the bundled list is used).
 REMOTE_MODELS_URL = "https://raw.githubusercontent.com/TonyXdZ/can-i-ai/main/models.json"
 CACHE_MAX_AGE_DAYS = 7
@@ -412,6 +412,7 @@ def run_gui():
     hw = detect_hardware()
     root = tk.Tk()
     root.title("Can I Run AI?")
+    set_window_icon(root)
     root.geometry("860x600")
 
     ttk.Label(root, text="Your computer", font=("TkDefaultFont", 12, "bold")).pack(anchor="w", padx=12, pady=(12, 0))
@@ -440,6 +441,31 @@ def run_gui():
     root.mainloop()
 
 
+def _resource_path(name):
+    """Find a bundled file, both when running from source and from the built app."""
+    base = getattr(sys, "_MEIPASS", os.path.dirname(os.path.abspath(__file__)))
+    return os.path.join(base, name)
+
+
+def set_window_icon(win):
+    """Use icon.ico (Windows) or icon.png (Linux) for the window/taskbar icon."""
+    try:
+        if sys.platform == "win32":
+            ico = _resource_path("icon.ico")
+            if os.path.isfile(ico):
+                win.iconbitmap(ico)
+                # CustomTkinter resets the icon shortly after startup; set it again.
+                win.after(250, lambda: win.iconbitmap(ico))
+        else:
+            png = _resource_path("icon.png")
+            if os.path.isfile(png):
+                import tkinter as tk
+                win._cira_icon = tk.PhotoImage(file=png)  # keep a reference
+                win.iconphoto(True, win._cira_icon)
+    except Exception:
+        pass  # a missing icon must never stop the app
+
+
 BADGES = {  # verdict -> (label, (light-mode color, dark-mode color))
     "GPU": ("Fast - GPU", ("#2e7d32", "#43a047")),
     "GPU+RAM": ("Partial GPU", ("#b26a00", "#d98a1c")),
@@ -466,6 +492,7 @@ def run_gui_modern():
     ctk.set_default_color_theme("blue")
     app = ctk.CTk()
     app.title("Can I Run AI?")
+    set_window_icon(app)
     app.geometry("940x700")
     app.minsize(780, 540)
     app.grid_columnconfigure(0, weight=1)

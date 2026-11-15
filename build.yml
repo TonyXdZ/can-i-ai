@@ -15,9 +15,11 @@ jobs:
         include:
           - os: windows-latest
             sep: ";"
+            icon_arg: "--icon icon.ico"
             artifact: can-i-run-ai-windows
           - os: ubuntu-latest
             sep: ":"
+            icon_arg: ""
             artifact: can-i-run-ai-linux
     runs-on: ${{ matrix.os }}
     steps:
@@ -30,7 +32,7 @@ jobs:
         run: sudo apt-get update && sudo apt-get install -y python3-tk
       - run: python -m pip install pyinstaller -r requirements.txt
       - name: Build
-        run: python -m PyInstaller --onefile --windowed --name can-i-run-ai --add-data "models.json${{ matrix.sep }}." --collect-all customtkinter can_i_run_ai.py
+        run: python -m PyInstaller --onefile --windowed --name can-i-run-ai ${{ matrix.icon_arg }} --add-data "models.json${{ matrix.sep }}." --add-data "icon.png${{ matrix.sep }}." --add-data "icon.ico${{ matrix.sep }}." --collect-all customtkinter can_i_run_ai.py
       - name: Name the Linux file so it differs from the Windows one
         if: runner.os == 'Linux'
         run: mv dist/can-i-run-ai dist/can-i-run-ai-linux

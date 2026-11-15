@@ -1,14 +1,9 @@
 # Installs "Can I Run AI?" for the current user on Windows (no admin needed).
-#   irm https://raw.githubusercontent.com/TonyXdz/can-i-ai/main/install.ps1 | iex
+#   irm https://raw.githubusercontent.com/TonyXdZ/can-i-ai/main/install.ps1 | iex
 $ErrorActionPreference = "Stop"
 
 $Repo = if ($env:CIRA_REPO) { $env:CIRA_REPO } else { "TonyXdZ/can-i-ai" }
 $Url  = if ($env:CIRA_URL)  { $env:CIRA_URL }  else { "https://github.com/$Repo/releases/latest/download/can-i-run-ai.exe" }
-
-if (-not $env:CIRA_URL -and $Repo -eq "YOUR_USER/YOUR_REPO") {
-    Write-Host "Edit install.ps1 and set `$Repo to your GitHub repo (user/name) first." -ForegroundColor Red
-    return
-}
 
 $Dir = Join-Path $env:LOCALAPPDATA "CanIRunAI"
 New-Item -ItemType Directory -Force -Path $Dir | Out-Null
