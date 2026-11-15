@@ -1,0 +1,46 @@
+name: Build apps
+
+on:
+  push:
+    tags: ["v*"]      # pushing a tag like v0.1 builds AND publishes a release
+  workflow_dispatch:  # manual run: builds only, no release
+
+permissions:
+  contents: write
+
+jobs:
+  build:
+    strategy:
+      matrix:
+        include:
+          - os: windows-latest
+            sep: ";"
+            artifact: can-i-run-ai-windows
+          - os: ubuntu-latest
+            sep: ":"
+            artifact: can-i-run-ai-linux
+    runs-on: ${{ matrix.os }}
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: Install tkinter (Linux)
+        if: runner.os == 'Linux'
+        run: sudo apt-get update && sudo apt-get install -y python3-tk
+      - run: python -m pip install pyinstaller -r requirements.txt
+      - name: Build
+        run: python -m PyInstaller --onefile --windowed --name can-i-run-ai --add-data "models.json${{ matrix.sep }}." --collect-all customtkinter can_i_run_ai.py
+      - name: Name the Linux file so it differs from the Windows one
+        if: runner.os == 'Linux'
+        run: mv dist/can-i-run-ai dist/can-i-run-ai-linux
+      - uses: actions/upload-artifact@v4
+        with:
+          name: ${{ matrix.artifact }}
+          path: dist/*
+      - name: Attach to GitHub Release
+        if: startsWith(github.ref, 'refs/tags/v')
+        uses: softprops/action-gh-release@v2
+        with:
+          files: dist/*
+          generate_release_notes: true
