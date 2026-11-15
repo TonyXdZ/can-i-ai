@@ -123,4 +123,4 @@ Single-file apps are built with PyInstaller. PyInstaller builds for the system i
 
 ## License
 
-Add a license of your choice (for example MIT) before sharing the project publicly.
+MIT License. See [LICENSE](LICENSE) for details.
