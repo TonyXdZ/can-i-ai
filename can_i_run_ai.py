@@ -237,7 +237,7 @@ def load_models():
 # Set this to the raw URL of models.json in YOUR GitHub repo, e.g.
 # "https://raw.githubusercontent.com/YOUR_USER/YOUR_REPO/main/models.json"
 # Leave empty to disable online updates (the bundled list is used).
-REMOTE_MODELS_URL = ""
+REMOTE_MODELS_URL = "https://raw.githubusercontent.com/TonyXdZ/can-i-ai/main/models.json"
 CACHE_MAX_AGE_DAYS = 7
 
 
