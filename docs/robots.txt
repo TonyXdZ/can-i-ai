@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://tonyxdz.github.io/can-i-ai/sitemap.xml
