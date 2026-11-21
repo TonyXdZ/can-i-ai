@@ -93,7 +93,7 @@ def build_models(items: list) -> list:
         key = name.lower()
         # Instruct and base variants collapse to one row; keep the more downloaded.
         if key not in best or (it.get("downloads") or 0) > best[key][1]:
-            best[key] = ({"name": name, "params_b": round(p, 1)}, it.get("downloads") or 0)
+            best[key] = ({"name": name, "params_b": round(p, 1), "repo_id": repo_id}, it.get("downloads") or 0)
     models = [v[0] for v in best.values()]
     models.sort(key=lambda m: (m["params_b"], m["name"]))
     return models

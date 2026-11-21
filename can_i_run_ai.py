@@ -178,27 +178,27 @@ def detect_hardware() -> Hardware:
 # --------------------------------------------------------------------------
 
 DEFAULT_MODELS = [
-    # (name, params in billions) - used only if models.json can't be found
-    ("Qwen2.5 0.5B", 0.5),
-    ("Llama 3.2 1B", 1.2),
-    ("Qwen2.5 1.5B", 1.5),
-    ("Gemma 2 2B", 2.6),
-    ("Llama 3.2 3B", 3.2),
-    ("Phi-3 Mini 3.8B", 3.8),
-    ("Qwen2.5 7B", 7.6),
-    ("Mistral 7B", 7.2),
-    ("DeepSeek-R1 Distill 7B", 7.6),
-    ("Llama 3.1 8B", 8.0),
-    ("Gemma 2 9B", 9.2),
-    ("Qwen2.5 14B", 14.8),
-    ("DeepSeek-R1 Distill 14B", 14.8),
-    ("Phi-3 Medium 14B", 14.0),
-    ("Gemma 2 27B", 27.2),
-    ("Qwen2.5 32B", 32.8),
-    ("DeepSeek-R1 Distill 32B", 32.8),
-    ("Mixtral 8x7B", 46.7),
-    ("Llama 3.3 70B", 70.6),
-    ("Qwen2.5 72B", 72.7),
+    # (name, params in billions, repo_id) - used only if models.json can't be found
+    ("Qwen2.5 0.5B", 0.5, "Qwen/Qwen2.5-0.5B"),
+    ("Llama 3.2 1B", 1.2, "meta-llama/Llama-3.2-1B"),
+    ("Qwen2.5 1.5B", 1.5, "Qwen/Qwen2.5-1.5B"),
+    ("Gemma 2 2B", 2.6, "google/gemma-2-2b"),
+    ("Llama 3.2 3B", 3.2, "meta-llama/Llama-3.2-3B"),
+    ("Phi-3 Mini 3.8B", 3.8, "microsoft/Phi-3-mini-4k-instruct"),
+    ("Qwen2.5 7B", 7.6, "Qwen/Qwen2.5-7B"),
+    ("Mistral 7B", 7.2, "mistralai/Mistral-7B-v0.1"),
+    ("DeepSeek-R1 Distill 7B", 7.6, "deepseek-ai/DeepSeek-R1-Distill-Qwen-7B"),
+    ("Llama 3.1 8B", 8.0, "meta-llama/Meta-Llama-3.1-8B"),
+    ("Gemma 2 9B", 9.2, "google/gemma-2-9b"),
+    ("Qwen2.5 14B", 14.8, "Qwen/Qwen2.5-14B"),
+    ("DeepSeek-R1 Distill 14B", 14.8, "deepseek-ai/DeepSeek-R1-Distill-Qwen-14B"),
+    ("Phi-3 Medium 14B", 14.0, "microsoft/Phi-3-medium-4k-instruct"),
+    ("Gemma 2 27B", 27.2, "google/gemma-2-27b"),
+    ("Qwen2.5 32B", 32.8, "Qwen/Qwen2.5-32B"),
+    ("DeepSeek-R1 Distill 32B", 32.8, "deepseek-ai/DeepSeek-R1-Distill-Qwen-32B"),
+    ("Mixtral 8x7B", 46.7, "mistralai/Mixtral-8x7B-v0.1"),
+    ("Llama 3.3 70B", 70.6, "meta-llama/Llama-3.3-70B-Instruct"),
+    ("Qwen2.5 72B", 72.7, "Qwen/Qwen2.5-72B"),
 ]
 
 # Approximate bytes per parameter for common GGUF quantizations
@@ -226,7 +226,7 @@ def load_models():
             try:
                 with open(path, encoding="utf-8") as f:
                     data = json.load(f)
-                models = [(m["name"], float(m["params_b"])) for m in data["models"]]
+                models = [(m["name"], float(m["params_b"]), m.get("repo_id", "")) for m in data["models"]]
                 if models:
                     return models
             except Exception as e:
@@ -242,7 +242,7 @@ CACHE_MAX_AGE_DAYS = 7
 
 
 def _parse_models(data):
-    models = [(m["name"], float(m["params_b"])) for m in data["models"]]
+    models = [(m["name"], float(m["params_b"]), m.get("repo_id", "")) for m in data["models"]]
     if not models:
         raise ValueError("empty model list")
     return models
@@ -305,7 +305,8 @@ def _load_local_extras():
     path = os.path.join(folder, "models.local.json")
     try:
         with open(path, encoding="utf-8") as f:
-            return _parse_models(json.load(f))
+            data = json.load(f)
+        return [(m["name"], float(m["params_b"]), m.get("repo_id", "")) for m in data["models"]]
     except Exception:
         return []
 
@@ -314,7 +315,7 @@ def load_models_with_updates():
     models = _load_remote_cached() or load_models()
     extras = _load_local_extras()
     if extras:
-        names = {n.lower() for n, _ in extras}
+        names = {n.lower() for n, _, _ in extras}
         models = [m for m in models if m[0].lower() not in names] + extras
         models.sort(key=lambda m: m[1])
     return models
@@ -360,7 +361,7 @@ def evaluate(hw: Hardware):
     well, falling back to lower quality. Returns list of row dicts."""
     rows = []
     order = {"GPU": 0, "GPU+RAM": 1, "CPU": 2, "No": 3}
-    for name, params in MODELS:
+    for name, params, repo_id in MODELS:
         best = None
         # Prefer best quality at the best speed tier
         for q, bpp in reversed(QUANTS):  # Q4 -> FP16 reversed = FP16 first
@@ -371,7 +372,7 @@ def evaluate(hw: Hardware):
                 best = cand
         # best now has the fastest tier achievable at the highest quality in that tier
         v, q, need = best
-        rows.append({"model": name, "params": params, "quant": q if v != "No" else "-",
+        rows.append({"model": name, "params": params, "repo_id": repo_id, "quant": q if v != "No" else "-",
                      "need_gb": need if v != "No" else required_gb(params, QUANTS[0][1]),
                      "verdict": v})
     return rows
@@ -401,7 +402,8 @@ def run_cli():
     print(f"\n{'Model':28} {'Quant':8} {'Needs':>8}  Result")
     print("-" * 78)
     for r in evaluate(hw):
-        print(f"{r['model']:28} {r['quant']:8} {r['need_gb']:6.1f}GB  {VERDICT_TEXT[r['verdict']]}")
+        link_str = f" (https://huggingface.co/{r['repo_id']})" if r.get('repo_id') else ""
+        print(f"{r['model']:28} {r['quant']:8} {r['need_gb']:6.1f}GB  {VERDICT_TEXT[r['verdict']]}{link_str}")
     print("\nEstimates are approximate. Real needs vary with context length and runtime.")
 
 
@@ -556,8 +558,26 @@ def run_gui_modern():
             row = ctk.CTkFrame(listbox, corner_radius=8, fg_color=("gray90", "gray17"))
             row.grid(row=i, column=0, sticky="ew", pady=3, padx=2)
             row.grid_columnconfigure(0, weight=1)
-            ctk.CTkLabel(row, text=r["model"], anchor="w",
-                         font=ctk.CTkFont(size=14, weight="bold")).grid(row=0, column=0, sticky="w", padx=14, pady=(8, 0))
+            
+            # Model name with optional clickable link
+            model_text = r["model"]
+            repo_id = r.get("repo_id")
+            
+            if repo_id:
+                mod_frame = ctk.CTkFrame(row, fg_color="transparent")
+                mod_frame.grid(row=0, column=0, sticky="w", padx=14, pady=(8, 0))
+                ctk.CTkLabel(mod_frame, text=model_text, anchor="w",
+                             font=ctk.CTkFont(size=14, weight="bold")).pack(side="left")
+                
+                url = f"https://huggingface.co/{repo_id}"
+                link_lbl = ctk.CTkLabel(mod_frame, text="[Download / HF ↗]", font=ctk.CTkFont(size=12),
+                                        text_color=("#1f6aa5", "#3a8ee6"), cursor="hand2")
+                link_lbl.pack(side="left", padx=10)
+                link_lbl.bind("<Button-1>", lambda e, u=url: __import__("webbrowser").open(u))
+            else:
+                ctk.CTkLabel(row, text=model_text, anchor="w",
+                             font=ctk.CTkFont(size=14, weight="bold")).grid(row=0, column=0, sticky="w", padx=14, pady=(8, 0))
+
             detail = f"{r['params']:g}B parameters"
             if r["quant"] != "-":
                 detail += f"  •  {r['quant']}  •  needs ~{r['need_gb']:.1f} GB"

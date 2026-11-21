@@ -3,463 +3,583 @@
   "models": [
     {
       "name": "t5gemma s s prefixlm",
-      "params_b": 0.3
+      "params_b": 0.3,
+      "repo_id": "google/t5gemma-s-s-prefixlm"
     },
     {
       "name": "Qwen2.5 0.5B",
-      "params_b": 0.5
+      "params_b": 0.5,
+      "repo_id": "Qwen/Qwen2.5-0.5B-Instruct"
     },
     {
       "name": "Qwen3 0.6B Base",
-      "params_b": 0.6
+      "params_b": 0.6,
+      "repo_id": "Qwen/Qwen3-0.6B-Base"
     },
     {
       "name": "Florence 2 large",
-      "params_b": 0.8
+      "params_b": 0.8,
+      "repo_id": "microsoft/Florence-2-large"
     },
     {
       "name": "Florence 2 large ft",
-      "params_b": 0.8
+      "params_b": 0.8,
+      "repo_id": "microsoft/Florence-2-large-ft"
     },
     {
       "name": "Qwen3 0.6B",
-      "params_b": 0.8
+      "params_b": 0.8,
+      "repo_id": "Qwen/Qwen3-0.6B"
     },
     {
       "name": "flan t5 large",
-      "params_b": 0.8
+      "params_b": 0.8,
+      "repo_id": "google/flan-t5-large"
     },
     {
       "name": "Qwen3.5 0.8B",
-      "params_b": 0.9
+      "params_b": 0.9,
+      "repo_id": "Qwen/Qwen3.5-0.8B"
     },
     {
       "name": "Qwen3.5 0.8B Base",
-      "params_b": 0.9
+      "params_b": 0.9,
+      "repo_id": "Qwen/Qwen3.5-0.8B-Base"
     },
     {
       "name": "gemma 3 1b",
-      "params_b": 1.0
+      "params_b": 1.0,
+      "repo_id": "google/gemma-3-1b-it"
     },
     {
       "name": "Llama 3.2 1B",
-      "params_b": 1.2
+      "params_b": 1.2,
+      "repo_id": "meta-llama/Llama-3.2-1B-Instruct"
     },
     {
       "name": "deepseek coder 1.3b",
-      "params_b": 1.3
+      "params_b": 1.3,
+      "repo_id": "deepseek-ai/deepseek-coder-1.3b-instruct"
     },
     {
       "name": "phi 1 5",
-      "params_b": 1.4
+      "params_b": 1.4,
+      "repo_id": "microsoft/phi-1_5"
     },
     {
       "name": "Qwen2.5 1.5B",
-      "params_b": 1.5
+      "params_b": 1.5,
+      "repo_id": "Qwen/Qwen2.5-1.5B-Instruct"
     },
     {
       "name": "Qwen2.5 Coder 1.5B",
-      "params_b": 1.5
+      "params_b": 1.5,
+      "repo_id": "Qwen/Qwen2.5-Coder-1.5B"
     },
     {
       "name": "Qwen3 1.7B Base",
-      "params_b": 1.7
+      "params_b": 1.7,
+      "repo_id": "Qwen/Qwen3-1.7B-Base"
     },
     {
       "name": "DeepSeek R1 Distill Qwen 1.5B",
-      "params_b": 1.8
+      "params_b": 1.8,
+      "repo_id": "deepseek-ai/DeepSeek-R1-Distill-Qwen-1.5B"
     },
     {
       "name": "Qwen3 1.7B",
-      "params_b": 2.0
+      "params_b": 2.0,
+      "repo_id": "Qwen/Qwen3-1.7B"
     },
     {
       "name": "Qwen3.5 2B",
-      "params_b": 2.3
+      "params_b": 2.3,
+      "repo_id": "Qwen/Qwen3.5-2B"
     },
     {
       "name": "dspark qwen3 8b block7",
-      "params_b": 2.4
+      "params_b": 2.4,
+      "repo_id": "deepseek-ai/dspark_qwen3_8b_block7"
     },
     {
       "name": "gemma 2b",
-      "params_b": 2.5
+      "params_b": 2.5,
+      "repo_id": "google/gemma-2b"
     },
     {
       "name": "gemma 2 2b",
-      "params_b": 2.6
+      "params_b": 2.6,
+      "repo_id": "google/gemma-2-2b-it"
     },
     {
       "name": "flan t5 xl",
-      "params_b": 2.8
+      "params_b": 2.8,
+      "repo_id": "google/flan-t5-xl"
     },
     {
       "name": "phi 2",
-      "params_b": 2.8
+      "params_b": 2.8,
+      "repo_id": "microsoft/phi-2"
     },
     {
       "name": "Qwen2.5 3B",
-      "params_b": 3.1
+      "params_b": 3.1,
+      "repo_id": "Qwen/Qwen2.5-3B-Instruct"
     },
     {
       "name": "Qwen2.5 Coder 3B",
-      "params_b": 3.1
+      "params_b": 3.1,
+      "repo_id": "Qwen/Qwen2.5-Coder-3B-Instruct"
     },
     {
       "name": "Llama 3.2 3B",
-      "params_b": 3.2
+      "params_b": 3.2,
+      "repo_id": "meta-llama/Llama-3.2-3B-Instruct"
     },
     {
       "name": "Ministral 3 3B 2512",
-      "params_b": 3.8
+      "params_b": 3.8,
+      "repo_id": "mistralai/Ministral-3-3B-Instruct-2512"
     },
     {
       "name": "Ministral 3 3B 2512 BF16",
-      "params_b": 3.8
+      "params_b": 3.8,
+      "repo_id": "mistralai/Ministral-3-3B-Instruct-2512-BF16"
     },
     {
       "name": "Phi 3 mini 128k",
-      "params_b": 3.8
+      "params_b": 3.8,
+      "repo_id": "microsoft/Phi-3-mini-128k-instruct"
     },
     {
       "name": "Phi 3 mini 4k",
-      "params_b": 3.8
+      "params_b": 3.8,
+      "repo_id": "microsoft/Phi-3-mini-4k-instruct"
     },
     {
       "name": "Phi 3.5 mini",
-      "params_b": 3.8
+      "params_b": 3.8,
+      "repo_id": "microsoft/Phi-3.5-mini-instruct"
     },
     {
       "name": "Phi 4 mini",
-      "params_b": 3.8
+      "params_b": 3.8,
+      "repo_id": "microsoft/Phi-4-mini-instruct"
     },
     {
       "name": "Phi 4 mini reasoning",
-      "params_b": 3.8
+      "params_b": 3.8,
+      "repo_id": "microsoft/Phi-4-mini-reasoning"
     },
     {
       "name": "Phi tiny MoE",
-      "params_b": 3.8
+      "params_b": 3.8,
+      "repo_id": "microsoft/Phi-tiny-MoE-instruct"
     },
     {
       "name": "Shieldstral 1.0 3B",
-      "params_b": 3.8
+      "params_b": 3.8,
+      "repo_id": "mistralai/Shieldstral-1.0-3B"
     },
     {
       "name": "Qwen3 4B",
-      "params_b": 4.0
+      "params_b": 4.0,
+      "repo_id": "Qwen/Qwen3-4B"
     },
     {
       "name": "Qwen3 4B 2507",
-      "params_b": 4.0
+      "params_b": 4.0,
+      "repo_id": "Qwen/Qwen3-4B-Instruct-2507"
     },
     {
       "name": "Qwen3 4B Base",
-      "params_b": 4.0
+      "params_b": 4.0,
+      "repo_id": "Qwen/Qwen3-4B-Base"
     },
     {
       "name": "gemma 3 4b",
-      "params_b": 4.3
+      "params_b": 4.3,
+      "repo_id": "google/gemma-3-4b-it"
     },
     {
       "name": "gemma 3 4b pt",
-      "params_b": 4.3
+      "params_b": 4.3,
+      "repo_id": "google/gemma-3-4b-pt"
     },
     {
       "name": "medgemma 1.5 4b",
-      "params_b": 4.3
+      "params_b": 4.3,
+      "repo_id": "google/medgemma-1.5-4b-it"
     },
     {
       "name": "medgemma 4b",
-      "params_b": 4.3
+      "params_b": 4.3,
+      "repo_id": "google/medgemma-4b-it"
     },
     {
       "name": "Qwen3.5 4B",
-      "params_b": 4.7
+      "params_b": 4.7,
+      "repo_id": "Qwen/Qwen3.5-4B"
     },
     {
       "name": "Qwen3.5 4B Base",
-      "params_b": 4.7
+      "params_b": 4.7,
+      "repo_id": "Qwen/Qwen3.5-4B-Base"
     },
     {
       "name": "Voxtral Mini 3B 2507",
-      "params_b": 4.7
+      "params_b": 4.7,
+      "repo_id": "mistralai/Voxtral-Mini-3B-2507"
     },
     {
       "name": "t5gemma 2b 2b ul2",
-      "params_b": 5.6
+      "params_b": 5.6,
+      "repo_id": "google/t5gemma-2b-2b-ul2-it"
     },
     {
       "name": "Llama 2 7b hf",
-      "params_b": 6.7
+      "params_b": 6.7,
+      "repo_id": "meta-llama/Llama-2-7b-hf"
     },
     {
       "name": "deepseek coder 6.7b",
-      "params_b": 6.7
+      "params_b": 6.7,
+      "repo_id": "deepseek-ai/deepseek-coder-6.7b-instruct"
     },
     {
       "name": "deepseek coder 7b",
-      "params_b": 6.9
+      "params_b": 6.9,
+      "repo_id": "deepseek-ai/deepseek-coder-7b-instruct-v1.5"
     },
     {
       "name": "maira 2",
-      "params_b": 6.9
+      "params_b": 6.9,
+      "repo_id": "microsoft/maira-2"
     },
     {
       "name": "deepseek llm 7b base",
-      "params_b": 7.0
+      "params_b": 7.0,
+      "repo_id": "deepseek-ai/deepseek-llm-7b-base"
     },
     {
       "name": "Mistral 7B",
-      "params_b": 7.2
+      "params_b": 7.2,
+      "repo_id": "mistralai/Mistral-7B-Instruct-v0.3"
     },
     {
       "name": "DeepSeek R1 Distill Qwen 7B",
-      "params_b": 7.6
+      "params_b": 7.6,
+      "repo_id": "deepseek-ai/DeepSeek-R1-Distill-Qwen-7B"
     },
     {
       "name": "Qwen2.5 7B",
-      "params_b": 7.6
+      "params_b": 7.6,
+      "repo_id": "Qwen/Qwen2.5-7B-Instruct"
     },
     {
       "name": "Qwen2.5 Coder 7B",
-      "params_b": 7.6
+      "params_b": 7.6,
+      "repo_id": "Qwen/Qwen2.5-Coder-7B-Instruct"
     },
     {
       "name": "DeepSeek R1 Distill Llama 8B",
-      "params_b": 8.0
+      "params_b": 8.0,
+      "repo_id": "deepseek-ai/DeepSeek-R1-Distill-Llama-8B"
     },
     {
       "name": "Llama 3.1 8B",
-      "params_b": 8.0
+      "params_b": 8.0,
+      "repo_id": "meta-llama/Llama-3.1-8B-Instruct"
     },
     {
       "name": "Meta Llama 3 8B",
-      "params_b": 8.0
+      "params_b": 8.0,
+      "repo_id": "meta-llama/Meta-Llama-3-8B-Instruct"
     },
     {
       "name": "Ministral 8B 2410",
-      "params_b": 8.0
+      "params_b": 8.0,
+      "repo_id": "mistralai/Ministral-8B-Instruct-2410"
     },
     {
       "name": "DeepSeek R1 0528 Qwen3 8B",
-      "params_b": 8.2
+      "params_b": 8.2,
+      "repo_id": "deepseek-ai/DeepSeek-R1-0528-Qwen3-8B"
     },
     {
       "name": "Qwen3 8B",
-      "params_b": 8.2
+      "params_b": 8.2,
+      "repo_id": "Qwen/Qwen3-8B"
     },
     {
       "name": "Qwen3 8B Base",
-      "params_b": 8.2
+      "params_b": 8.2,
+      "repo_id": "Qwen/Qwen3-8B-Base"
     },
     {
       "name": "gemma 7b",
-      "params_b": 8.5
+      "params_b": 8.5,
+      "repo_id": "google/gemma-7b"
     },
     {
       "name": "Ministral 3 8B 2512",
-      "params_b": 8.9
+      "params_b": 8.9,
+      "repo_id": "mistralai/Ministral-3-8B-Instruct-2512"
     },
     {
       "name": "Ministral 3 8B 2512 BF16",
-      "params_b": 8.9
+      "params_b": 8.9,
+      "repo_id": "mistralai/Ministral-3-8B-Instruct-2512-BF16"
     },
     {
       "name": "gemma 2 9b",
-      "params_b": 9.2
+      "params_b": 9.2,
+      "repo_id": "google/gemma-2-9b-it"
     },
     {
       "name": "Qwen3.5 9B",
-      "params_b": 9.7
+      "params_b": 9.7,
+      "repo_id": "Qwen/Qwen3.5-9B"
     },
     {
       "name": "Mistral Nemo 2407",
-      "params_b": 12.2
+      "params_b": 12.2,
+      "repo_id": "mistralai/Mistral-Nemo-Instruct-2407"
     },
     {
       "name": "Mistral Nemo Base 2407",
-      "params_b": 12.2
+      "params_b": 12.2,
+      "repo_id": "mistralai/Mistral-Nemo-Base-2407"
     },
     {
       "name": "gemma 3 12b",
-      "params_b": 12.2
+      "params_b": 12.2,
+      "repo_id": "google/gemma-3-12b-it"
     },
     {
       "name": "Llama 2 13b hf",
-      "params_b": 13.0
+      "params_b": 13.0,
+      "repo_id": "meta-llama/Llama-2-13b-chat-hf"
     },
     {
       "name": "Ministral 3 14B 2512",
-      "params_b": 13.9
+      "params_b": 13.9,
+      "repo_id": "mistralai/Ministral-3-14B-Instruct-2512"
     },
     {
       "name": "Ministral 3 14B 2512 BF16",
-      "params_b": 13.9
+      "params_b": 13.9,
+      "repo_id": "mistralai/Ministral-3-14B-Instruct-2512-BF16"
     },
     {
       "name": "Ministral 3 14B Reasoning 2512",
-      "params_b": 13.9
+      "params_b": 13.9,
+      "repo_id": "mistralai/Ministral-3-14B-Reasoning-2512"
     },
     {
       "name": "Phi 3 medium 4k",
-      "params_b": 14.0
+      "params_b": 14.0,
+      "repo_id": "microsoft/Phi-3-medium-4k-instruct"
     },
     {
       "name": "Phi 4 reasoning",
-      "params_b": 14.7
+      "params_b": 14.7,
+      "repo_id": "microsoft/Phi-4-reasoning"
     },
     {
       "name": "phi 4",
-      "params_b": 14.7
+      "params_b": 14.7,
+      "repo_id": "microsoft/phi-4"
     },
     {
       "name": "DeepSeek R1 Distill Qwen 14B",
-      "params_b": 14.8
+      "params_b": 14.8,
+      "repo_id": "deepseek-ai/DeepSeek-R1-Distill-Qwen-14B"
     },
     {
       "name": "Qwen2.5 14B",
-      "params_b": 14.8
+      "params_b": 14.8,
+      "repo_id": "Qwen/Qwen2.5-14B-Instruct"
     },
     {
       "name": "Qwen2.5 Coder 14B",
-      "params_b": 14.8
+      "params_b": 14.8,
+      "repo_id": "Qwen/Qwen2.5-Coder-14B-Instruct"
     },
     {
       "name": "Qwen3 14B",
-      "params_b": 14.8
+      "params_b": 14.8,
+      "repo_id": "Qwen/Qwen3-14B"
     },
     {
       "name": "DeepSeek Coder V2 Lite",
-      "params_b": 15.7
+      "params_b": 15.7,
+      "repo_id": "deepseek-ai/DeepSeek-Coder-V2-Lite-Instruct"
     },
     {
       "name": "DeepSeek V2 Lite",
-      "params_b": 15.7
+      "params_b": 15.7,
+      "repo_id": "deepseek-ai/DeepSeek-V2-Lite"
     },
     {
       "name": "deepseek moe 16b base",
-      "params_b": 16.4
+      "params_b": 16.4,
+      "repo_id": "deepseek-ai/deepseek-moe-16b-base"
     },
     {
       "name": "Magistral Small 2506",
-      "params_b": 23.6
+      "params_b": 23.6,
+      "repo_id": "mistralai/Magistral-Small-2506"
     },
     {
       "name": "Mistral Small 24B 2501",
-      "params_b": 23.6
+      "params_b": 23.6,
+      "repo_id": "mistralai/Mistral-Small-24B-Instruct-2501"
     },
     {
       "name": "Devstral Small 2 24B 2512",
-      "params_b": 24.0
+      "params_b": 24.0,
+      "repo_id": "mistralai/Devstral-Small-2-24B-Instruct-2512"
     },
     {
       "name": "Mistral Small 3.1 24B 2503",
-      "params_b": 24.0
+      "params_b": 24.0,
+      "repo_id": "mistralai/Mistral-Small-3.1-24B-Instruct-2503"
     },
     {
       "name": "Mistral Small 3.2 24B 2506",
-      "params_b": 24.0
+      "params_b": 24.0,
+      "repo_id": "mistralai/Mistral-Small-3.2-24B-Instruct-2506"
     },
     {
       "name": "gemma 4 26B A4B",
-      "params_b": 25.8
+      "params_b": 25.8,
+      "repo_id": "google/gemma-4-26B-A4B-it"
     },
     {
       "name": "gemma 3 27b",
-      "params_b": 27.4
+      "params_b": 27.4,
+      "repo_id": "google/gemma-3-27b-it"
     },
     {
       "name": "Qwen3.5 27B",
-      "params_b": 27.8
+      "params_b": 27.8,
+      "repo_id": "Qwen/Qwen3.5-27B"
     },
     {
       "name": "Qwen3.6 27B",
-      "params_b": 27.8
+      "params_b": 27.8,
+      "repo_id": "Qwen/Qwen3.6-27B"
     },
     {
       "name": "Qwen3.8 27B",
-      "params_b": 27.8
+      "params_b": 27.8,
+      "repo_id": "Qwen/Qwen3.8-27B"
     },
     {
       "name": "Qwen3 30B A3B",
-      "params_b": 30.5
+      "params_b": 30.5,
+      "repo_id": "Qwen/Qwen3-30B-A3B"
     },
     {
       "name": "Qwen3 30B A3B 2507",
-      "params_b": 30.5
+      "params_b": 30.5,
+      "repo_id": "Qwen/Qwen3-30B-A3B-Instruct-2507"
     },
     {
       "name": "Qwen3 Coder 30B A3B",
-      "params_b": 30.5
+      "params_b": 30.5,
+      "repo_id": "Qwen/Qwen3-Coder-30B-A3B-Instruct"
     },
     {
       "name": "gemma 4 31B",
-      "params_b": 31.3
+      "params_b": 31.3,
+      "repo_id": "google/gemma-4-31B-it"
     },
     {
       "name": "gemma 4 31B qat w4a16 ct",
-      "params_b": 32.7
+      "params_b": 32.7,
+      "repo_id": "google/gemma-4-31B-it-qat-w4a16-ct"
     },
     {
       "name": "DeepSeek R1 Distill Qwen 32B",
-      "params_b": 32.8
+      "params_b": 32.8,
+      "repo_id": "deepseek-ai/DeepSeek-R1-Distill-Qwen-32B"
     },
     {
       "name": "Qwen2.5 32B",
-      "params_b": 32.8
+      "params_b": 32.8,
+      "repo_id": "Qwen/Qwen2.5-32B-Instruct"
     },
     {
       "name": "Qwen2.5 Coder 32B",
-      "params_b": 32.8
+      "params_b": 32.8,
+      "repo_id": "Qwen/Qwen2.5-Coder-32B-Instruct"
     },
     {
       "name": "Qwen3 32B",
-      "params_b": 32.8
+      "params_b": 32.8,
+      "repo_id": "Qwen/Qwen3-32B"
     },
     {
       "name": "Qwen3.5 35B A3B",
-      "params_b": 36.0
+      "params_b": 36.0,
+      "repo_id": "Qwen/Qwen3.5-35B-A3B"
     },
     {
       "name": "Qwen3.6 35B A3B",
-      "params_b": 36.0
+      "params_b": 36.0,
+      "repo_id": "Qwen/Qwen3.6-35B-A3B"
     },
     {
       "name": "Phi 3.5 MoE",
-      "params_b": 41.9
+      "params_b": 41.9,
+      "repo_id": "microsoft/Phi-3.5-MoE-instruct"
     },
     {
       "name": "Mixtral 8x7B",
-      "params_b": 46.7
+      "params_b": 46.7,
+      "repo_id": "mistralai/Mixtral-8x7B-Instruct-v0.1"
+    },
+    {
+      "name": "Mistral Large 4 1T A52B",
+      "params_b": 52.0,
+      "repo_id": "mistralai/Mistral-Large-4-1T-A52B"
     },
     {
       "name": "DeepSeek R1 Distill Llama 70B",
-      "params_b": 70.6
+      "params_b": 70.6,
+      "repo_id": "deepseek-ai/DeepSeek-R1-Distill-Llama-70B"
     },
     {
       "name": "Llama 3.1 70B",
-      "params_b": 70.6
+      "params_b": 70.6,
+      "repo_id": "meta-llama/Llama-3.1-70B-Instruct"
     },
     {
       "name": "Llama 3.3 70B",
-      "params_b": 70.6
+      "params_b": 70.6,
+      "repo_id": "meta-llama/Llama-3.3-70B-Instruct"
     },
     {
       "name": "Meta Llama 3 70B",
-      "params_b": 70.6
+      "params_b": 70.6,
+      "repo_id": "meta-llama/Meta-Llama-3-70B"
     },
     {
       "name": "Llama 4 Scout 17B 16E",
-      "params_b": 108.6
+      "params_b": 108.6,
+      "repo_id": "meta-llama/Llama-4-Scout-17B-16E-Instruct"
     },
     {
       "name": "Mistral Small 4 119B 2603",
-      "params_b": 119.4
+      "params_b": 119.4,
+      "repo_id": "mistralai/Mistral-Small-4-119B-2603"
     },
     {
       "name": "Qwen3.5 122B A10B",
-      "params_b": 125.1
+      "params_b": 125.1,
+      "repo_id": "Qwen/Qwen3.5-122B-A10B"
     }
   ]
 }
