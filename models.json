@@ -247,11 +247,6 @@
       "repo_id": "deepseek-ai/deepseek-coder-6.7b-instruct"
     },
     {
-      "name": "deepseek coder 7b",
-      "params_b": 6.9,
-      "repo_id": "deepseek-ai/deepseek-coder-7b-instruct-v1.5"
-    },
-    {
       "name": "maira 2",
       "params_b": 6.9,
       "repo_id": "microsoft/maira-2"
@@ -347,11 +342,6 @@
       "repo_id": "mistralai/Mistral-Nemo-Instruct-2407"
     },
     {
-      "name": "Mistral Nemo Base 2407",
-      "params_b": 12.2,
-      "repo_id": "mistralai/Mistral-Nemo-Base-2407"
-    },
-    {
       "name": "gemma 3 12b",
       "params_b": 12.2,
       "repo_id": "google/gemma-3-12b-it"
@@ -435,11 +425,6 @@
       "name": "Mistral Small 24B 2501",
       "params_b": 23.6,
       "repo_id": "mistralai/Mistral-Small-24B-Instruct-2501"
-    },
-    {
-      "name": "Devstral Small 2 24B 2512",
-      "params_b": 24.0,
-      "repo_id": "mistralai/Devstral-Small-2-24B-Instruct-2512"
     },
     {
       "name": "Mistral Small 3.1 24B 2503",
